@@ -119,7 +119,6 @@ button{
 
 button:hover{
     transform: scale(1.03);
-    box-shadow: none;
 }
 
 .option{
