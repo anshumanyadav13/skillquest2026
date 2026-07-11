@@ -508,3 +508,16 @@ font-weight:bold;
 font-size:30px;
 color:#FFD700;
 }
+
+ul{
+    color:white;
+    text-align:left;
+    line-height:2;
+    font-size:22px;
+    margin:20px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
