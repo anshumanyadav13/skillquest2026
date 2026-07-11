@@ -485,3 +485,26 @@ border:2px solid silver;
 .leader-card:nth-child(3){
 border:2px solid #CD7F32;
 }
+
+.stats{
+display:flex;
+justify-content:space-between;
+gap:15px;
+margin:20px 0;
+}
+
+.stat-box{
+flex:1;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,215,0,.4);
+border-radius:15px;
+padding:15px;
+text-align:center;
+color:white;
+font-weight:bold;
+}
+
+.stat-box span{
+font-size:30px;
+color:#FFD700;
+}
