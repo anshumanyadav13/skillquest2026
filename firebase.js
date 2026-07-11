@@ -1,0 +1,34 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "skillquestrj2026.firebaseapp.com",
+  projectId: "skillquestrj2026",
+  storageBucket: "skillquestrj2026.firebasestorage.app",
+  messagingSenderId: "180834121471",
+  appId: "1:180834121471:web:c5fa92f0a5c34d8319feca",
+  measurementId: "G-TWML8ZN1Q4"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export async function saveScore(score) {
+
+    const name = localStorage.getItem("name");
+    const roll = localStorage.getItem("roll");
+
+    await setDoc(doc(db, "scores", roll), {
+        name: name,
+        roll: roll,
+        score: score,
+        time: new Date()
+    });
+
+    console.log("Score saved successfully");
+}
