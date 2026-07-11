@@ -472,3 +472,16 @@ color:white;
 color:#FFD700;
 font-size:13px;
 }
+
+.leader-card:nth-child(1){
+transform:scale(1.05);
+border:2px solid gold;
+}
+
+.leader-card:nth-child(2){
+border:2px solid silver;
+}
+
+.leader-card:nth-child(3){
+border:2px solid #CD7F32;
+}
