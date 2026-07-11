@@ -60,4 +60,5 @@ async function loadLeaderboard(){
 
 }
 
+setInterval(loadLeaderboard, 3000);
 loadLeaderboard();
