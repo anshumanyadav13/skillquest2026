@@ -522,3 +522,18 @@ ul{
 li{
     margin-bottom:10px;
 }
+
+.rules-list{
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+}
+
+.rules-list li{
+    color:#FFFFFF;
+    font-size:22px;
+    font-weight:600;
+    margin:15px 0;
+    line-height:1.8;
+    text-shadow:0 0 6px rgba(255,215,0,0.3);
+}
