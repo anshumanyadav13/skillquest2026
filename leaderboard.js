@@ -22,6 +22,9 @@ const db = getFirestore(app);
 
 const leaderboard = document.getElementById("leaderboard");
 
+const totalPlayers = document.getElementById("totalPlayers");
+const highestScore = document.getElementById("highestScore");
+
 async function loadLeaderboard(){
 
     leaderboard.innerHTML = "";
@@ -34,9 +37,18 @@ async function loadLeaderboard(){
 
     const snapshot = await getDocs(q);
 
+totalPlayers.innerHTML = snapshot.size;
+
+let highest = 0;
+
     let rank = 1;
 
     snapshot.forEach((doc)=>{
+
+if(data.score > highest){
+    highest = data.score;
+}
+highestScore.innerHTML = highest;
 
         const data = doc.data();
 
