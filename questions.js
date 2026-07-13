@@ -17,11 +17,16 @@ points:2
 },
 
 {
-logo:"images/microsoft.png",
-question:"Identify this logo.",
-options:["Microsoft","Intel","Dell","HP"],
-answer:"Microsoft",
-points:2
+    logo: "images/copilot.png",
+    question: "Identify this AI assistant logo.",
+    options: [
+        "Microsoft Copilot",
+        "Google Gemini",
+        "ChatGPT",
+        "Claude"
+    ],
+    answer: "Microsoft Copilot",
+    points: 2
 },
 
 {
