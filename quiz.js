@@ -67,18 +67,12 @@ if(q.logo && q.logo !== ""){
 
             if(this.innerHTML == q.answer){
 
-                score += q.points;
+    score += q.points;
 
-                liveScore.innerHTML =
-                "⭐ Score: " + score;
+    liveScore.innerHTML =
+    "⭐ Score: " + score;
 
-                this.style.background = "green";
-
-            }else{
-
-                this.style.background = "red";
-
-            }
+}
 
             disableButtons();
 
