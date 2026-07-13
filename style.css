@@ -422,7 +422,8 @@ background:rgba(255,255,255,.1);
     width:0;
     border-radius:20px;
     background:linear-gradient(90deg,#FFD700,#FFF176);
-    animation:growBar 1s forwards;
+    transition:width 1s ease-in-out;
+    box-shadow:0 0 15px rgba(255,215,0,.7);
 }
 
 @keyframes growBar{
