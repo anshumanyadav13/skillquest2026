@@ -568,3 +568,7 @@ background:linear-gradient(135deg,#C0C0C0,#E5E5E5);
 .avatar3{
 background:linear-gradient(135deg,#CD7F32,#F4A460);
 }
+
+.fill{
+    transition: width 1s ease;
+}
