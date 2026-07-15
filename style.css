@@ -19,8 +19,9 @@ body{
 .container{
     width:100%;
     max-width:650px;
-    margin:40px auto;
+    margin:0 auto;
     text-align:center;
+    animation:none;
 }
 
 .card{
