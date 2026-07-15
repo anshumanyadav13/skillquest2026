@@ -579,11 +579,15 @@ button{
     flex:1;
     background:#374151;
     color:white;
-    padding:12px;
+    padding:8px 10px;
     border-radius:12px;
     text-align:center;
     font-weight:600;
     font-size:15px;
+    min-height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .options{
