@@ -22,36 +22,33 @@ const db = getFirestore(app);
 
 const leaderboard = document.getElementById("leaderboard");
 
-async function loadLeaderboard(){
 
-    leaderboard.innerHTML = "";
-
-    const q = query(
+const q = query(
     collection(db, "scores"),
     orderBy("score", "desc"),
     orderBy("time", "asc"),
     limit(10)
 );
 
-    const snapshot = await getDocs(q);
+onSnapshot(q, (snapshot) => {
+
+    leaderboard.innerHTML = "";
 
     let rank = 1;
 
-    snapshot.forEach((doc)=>{
+    snapshot.forEach((doc) => {
 
         const data = doc.data();
 
         let medal = rank;
-
         if(rank==1) medal="🥇";
         else if(rank==2) medal="🥈";
         else if(rank==3) medal="🥉";
 
         let initial = data.name.charAt(0).toUpperCase();
-
         let percent = (data.score / 40) * 100;
 
-leaderboard.innerHTML += `
+        leaderboard.innerHTML += `
 <div class="leader-card">
 
     <div class="leader-top">
@@ -63,19 +60,14 @@ leaderboard.innerHTML += `
         </div>
 
         <div class="info">
-
             <h3>${data.name}</h3>
-
             <small>⭐ ${data.score} Points</small>
-
         </div>
 
     </div>
 
     <div class="bar">
-
         <div class="fill" style="width:${percent}%"></div>
-
     </div>
 
 </div>
@@ -85,13 +77,4 @@ leaderboard.innerHTML += `
 
     });
 
-}
-const q = query(
-    collection(db, "scores"),
-    orderBy("score", "desc"),
-    limit(10)
-);
-
-onSnapshot(q, () => {
-    loadLeaderboard();
 });
