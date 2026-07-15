@@ -20,9 +20,10 @@ body{
 }
 .container{
     width:100%;
-    max-width:900px;
+    max-width:500px;
     margin:0 auto;
     text-align:center;
+    padding:15px;
 }
 
 .card{
@@ -119,26 +120,7 @@ button:active{
     margin:8px 0;
 }
 
-#logo{
 
-width:140px;
-height:140px;
-
-object-fit:contain;
-
-background:white;
-
-border-radius:20px;
-
-padding:12px;
-
-border:3px solid #FFD700;
-
-box-shadow:0 0 20px rgba(255,215,0,.5);
-
-margin:15px auto;
-
-}
 
 #timer{
     color:#FFD700;
@@ -647,39 +629,16 @@ button{
 
 /* ===== Mobile Fix ===== */
 
-@media (max-width:768px){
+@media (min-width:992px){
 
 .container{
-    max-width:100%;
-    padding:15px;
+    max-width:900px;
 }
 
 .card{
-    padding:20px;
-}
-
-.quiz-top{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-}
-
-.badge{
-    width:100%;
-}
-
-#questionText{
-    font-size:28px;
-}
-
-.option{
-    font-size:18px;
-    padding:15px;
-}
-
-#logo{
-    width:120px;
-    height:120px;
+    max-width:700px;
+    margin:auto;
+    padding:45px;
 }
 
 }
