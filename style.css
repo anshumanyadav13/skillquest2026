@@ -220,10 +220,6 @@ transform:translateY(0px);
 
 @media(max-width:500px){
 
-.container{
-    width:100%;
-    max-width:500px;
-
 h1{
 font-size:28px;
 }
