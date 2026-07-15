@@ -52,4 +52,4 @@ window.startQuiz = async function () {
     localStorage.setItem("class", cls);
 
     window.location.href = "rules.html";
-};
+}; 
