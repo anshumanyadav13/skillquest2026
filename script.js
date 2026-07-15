@@ -22,6 +22,11 @@ window.startQuiz = async function(){
 
     let name = document.getElementById("name").value.trim();
     let roll = document.getElementById("roll").value.trim();
+
+if (!/^\d{4}$/.test(roll)) {
+    alert("Please enter a valid 4-digit Roll Number.");
+    return;
+}
     let cls = document.getElementById("class").value;
 
     if(name==""){
