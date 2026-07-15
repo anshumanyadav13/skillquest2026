@@ -27,6 +27,7 @@ body{
 
 .card{
     background:rgba(45,45,45,.95);
+    backdrop-filter: blur(10px);
     border:2px solid #6c757d;
     border-radius:25px;
     padding:30px;
@@ -35,8 +36,12 @@ body{
 }
 
 h1{
-color:#e0e0e0;
-text-shadow:none;
+    font-size:48px;
+    font-weight:800;
+    color:white;
+    letter-spacing:2px;
+    margin:15px 0;
+    text-transform:uppercase;
 }
 
 h2{
@@ -63,22 +68,20 @@ color:#b0bec5;
 input,
 select{
 
-    width:100%;
-    padding:15px;
+width:100%;
+padding:18px;
 
-    margin:12px 0;
+margin:15px 0;
 
-    border:none;
+border:2px solid #555;
 
-    border-radius:12px;
+border-radius:30px;
 
-    outline:none;
+font-size:18px;
 
-    font-size:16px;
+background:#F5F5F5;
 
-    background:rgba(255,255,255,.9);
-
-    transition:.3s;
+transition:.3s;
 
 }
 
@@ -219,8 +222,8 @@ transform:translateY(0px);
 @media(max-width:500px){
 
 .container{
-max-width:100%;
-}
+    width:100%;
+    max-width:500px;
 
 h1{
 font-size:28px;
