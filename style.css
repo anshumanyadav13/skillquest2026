@@ -522,21 +522,6 @@ li{
     transform:scale(1.03);
     transition:.3s;
 }
-.avatar1{
-background:linear-gradient(135deg,#FFD700,#FFF176);
-}
-
-.avatar2{
-background:linear-gradient(135deg,#C0C0C0,#E5E5E5);
-}
-
-.avatar3{
-background:linear-gradient(135deg,#CD7F32,#F4A460);
-}
-
-.fill{
-    transition: width 1s ease;
-}
 
 /* ===== Desktop & Smart Board ===== */
 
@@ -656,6 +641,45 @@ button{
 
 .badge{
     flex:1;
+}
+
+}
+
+/* ===== Mobile Fix ===== */
+
+@media (max-width:768px){
+
+.container{
+    max-width:100%;
+    padding:15px;
+}
+
+.card{
+    padding:20px;
+}
+
+.quiz-top{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.badge{
+    width:100%;
+}
+
+#questionText{
+    font-size:28px;
+}
+
+.option{
+    font-size:18px;
+    padding:15px;
+}
+
+#logo{
+    width:120px;
+    height:120px;
 }
 
 }
