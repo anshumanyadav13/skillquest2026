@@ -29,17 +29,23 @@ const leaderboard = document.getElementById("leaderboard");
 
 onSnapshot(q, (snapshot) => {
 
-console.log("Documents:", snapshot.size);
-
-snapshot.forEach((doc) => {
-    console.log(doc.data());
-});
     leaderboard.innerHTML = "";
+
+    if (snapshot.size < 10) {
+        leaderboard.innerHTML = `
+            <h2 style="color:#FFD700;text-align:center;">
+                🏅 Waiting for participants...
+            </h2>
+            <p style="color:white;text-align:center;">
+                ${10 - snapshot.size} more participant(s) needed to display the leaderboard.
+            </p>
+        `;
+        return;
+    }
 
     let rank = 1;
 
     snapshot.forEach((doc) => {
-
         const data = doc.data();
 
         let medal = rank;
@@ -52,9 +58,7 @@ snapshot.forEach((doc) => {
 
         leaderboard.innerHTML += `
 <div class="leader-card">
-
     <div class="leader-top">
-
         <span class="medal">${medal}</span>
 
         <div class="avatar avatar${rank}">
@@ -65,18 +69,14 @@ snapshot.forEach((doc) => {
             <h3>${data.name}</h3>
             <small>⭐ ${data.score} Points</small>
         </div>
-
     </div>
 
     <div class="bar">
         <div class="fill" style="width:${percent}%"></div>
     </div>
-
 </div>
 `;
-
         rank++;
-
     });
 
 });
