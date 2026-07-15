@@ -17,7 +17,7 @@ let timeLeft = 15;
 let timer;
 
 const studentInfo = document.getElementById("studentInfo");
-const liveScore = document.getElementById("liveScore");
+
 const logo = document.getElementById("logo");
 const questionText = document.getElementById("questionText");
 const questionNo = document.getElementById("questionNo");
@@ -68,9 +68,6 @@ if(q.logo && q.logo !== ""){
             if(this.innerHTML == q.answer){
 
     score += q.points;
-
-    liveScore.innerHTML =
-    "⭐ Score: " + score;
 
 }
 
