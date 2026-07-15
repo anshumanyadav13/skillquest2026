@@ -39,6 +39,7 @@ window.startQuiz = async function () {
         return;
     }
 
+    try {
     const studentRef = doc(db, "scores", roll);
     const studentDoc = await getDoc(studentRef);
 
@@ -46,6 +47,10 @@ window.startQuiz = async function () {
         alert("❌ This Roll Number has already attempted the quiz.");
         return;
     }
+} catch (error) {
+    alert(error.message);
+    return;
+}
 
     localStorage.setItem("name", name);
     localStorage.setItem("roll", roll);
