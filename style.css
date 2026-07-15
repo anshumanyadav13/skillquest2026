@@ -18,19 +18,19 @@ body{
 }
 .container{
     width:100%;
-    max-width:650px;
+    max-width:900px;
     margin:0 auto;
     text-align:center;
-    animation:none;
 }
 
 .card{
+    width:100%;
+    max-width:700px;
+    margin:20px auto;
     background:rgba(45,45,45,.95);
-    backdrop-filter: blur(10px);
     border:2px solid #6c757d;
     border-radius:25px;
-    padding:30px;
-    margin-top:20px;
+    padding:40px;
     box-shadow:0 0 25px rgba(0,0,0,.6);
 }
 
@@ -550,29 +550,48 @@ background:linear-gradient(135deg,#CD7F32,#F4A460);
     transition: width 1s ease;
 }
 
-@media (min-width: 992px){
+/* ===== Desktop & Smart Board ===== */
+
+@media screen and (min-width:992px){
 
 .container{
-    max-width:700px;
+    max-width:900px;
 }
 
 .card{
-    padding:50px;
+    max-width:700px;
+    margin:auto;
+    padding:45px;
 }
 
 h1{
     font-size:60px;
 }
 
-.subtitle{
+h2{
+    font-size:32px;
+}
+
+h3{
     font-size:24px;
 }
 
-button{
+.subtitle{
     font-size:22px;
 }
 
 input{
     font-size:20px;
+    padding:18px;
 }
+
+button{
+    font-size:22px;
+    padding:18px;
+}
+
+.footer{
+    font-size:18px;
+}
+
 }
