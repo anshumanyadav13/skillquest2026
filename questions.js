@@ -129,7 +129,7 @@ points:1
 },
 
 {
-logo:"images/pdf.png",
+logo:"images/adobe.png",
 question:"",
 options:["Microsoft Word","Adobe PDF","Microsoft Excel","Google Docs"],
 answer:"Adobe PDF",
