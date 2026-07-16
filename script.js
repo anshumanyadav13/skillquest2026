@@ -20,6 +20,8 @@ const db = getFirestore(app);
 
 window.startQuiz = async function () {
 
+localStorage.removeItem("quizCompleted");
+
     const btn = document.querySelector("button");
     btn.disabled = true;
     btn.innerHTML = "⏳ Please wait...";
