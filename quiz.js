@@ -73,21 +73,21 @@ if(q.logo && q.logo !== ""){
 
         optionButtons[i].onclick = function(){
 
-            if(this.innerHTML == q.answer){
+    // Highlight selected option
+    this.style.background = "#22c55e";
+    this.style.color = "#ffffff";
 
-    score += q.points;
+    if(this.innerHTML == q.answer){
+        score += q.points;
+    }
 
-}
+    disableButtons();
 
-            disableButtons();
+    setTimeout(function(){
+        nextQuestion();
+    },800);
 
-            setTimeout(function(){
-
-                nextQuestion();
-
-            },800);
-
-        };
+};
 
     }
 
