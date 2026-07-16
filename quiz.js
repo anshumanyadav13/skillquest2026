@@ -1,7 +1,9 @@
 if (localStorage.getItem("quizCompleted") === "true") {
     window.location.href = "result.html";
 }
+
 import { saveScore } from "./firebase.js";
+
 history.pushState(null, null, location.href);
 
 window.onbeforeunload = function () {
@@ -20,7 +22,6 @@ let timeLeft = 15;
 let timer;
 
 const studentInfo = document.getElementById("studentInfo");
-
 const logo = document.getElementById("logo");
 const questionText = document.getElementById("questionText");
 const questionNo = document.getElementById("questionNo");
@@ -28,12 +29,13 @@ const timerText = document.getElementById("timer");
 const optionButtons = document.querySelectorAll(".option");
 const progressBar = document.getElementById("progressBar");
 
-let studentName = localStorage.getItem("name");
-let studentRoll = localStorage.getItem("roll");
+const studentName = localStorage.getItem("name");
+const studentRoll = localStorage.getItem("roll");
 
 studentInfo.innerHTML =
 "👤 " + studentName + " | 🎓 Roll No: " + studentRoll;
 
+// Preload all logos
 questions.forEach(q => {
     if (q.logo) {
         const img = new Image();
@@ -43,26 +45,31 @@ questions.forEach(q => {
 
 function loadQuestion(){
 
+    // Remove focus from previously clicked button
+    if(document.activeElement){
+        document.activeElement.blur();
+    }
+
     clearInterval(timer);
+
+    resetButtons();
 
     let q = questions[currentQuestion];
 
     questionNo.innerHTML =
     "Question " + (currentQuestion + 1) + " of " + questions.length;
 
-    let progress =
-    ((currentQuestion + 1) / questions.length) * 100;
-
-    progressBar.style.width = progress + "%";
+    progressBar.style.width =
+    ((currentQuestion + 1) / questions.length) * 100 + "%";
 
     questionText.innerHTML = q.question;
 
-if(q.logo && q.logo !== ""){
-    logo.style.display = "block";
-    logo.src = q.logo;
-}else{
-    logo.style.display = "none";
-}
+    if(q.logo){
+        logo.style.display = "block";
+        logo.src = q.logo;
+    }else{
+        logo.style.display = "none";
+    }
 
     let options = [...q.options];
     options.sort(() => Math.random() - 0.5);
@@ -73,28 +80,24 @@ if(q.logo && q.logo !== ""){
 
         optionButtons[i].onclick = function(){
 
-    // Highlight selected option
-    this.style.background = "#22c55e";
-    this.style.color = "#ffffff";
+            this.blur();
 
-    if(this.innerHTML == q.answer){
-        score += q.points;
+            this.style.background = "#22c55e";
+            this.style.color = "#fff";
+
+            if(this.innerHTML === q.answer){
+                score += q.points;
+            }
+
+            disableButtons();
+
+            setTimeout(nextQuestion,800);
+
+        };
+
     }
-
-    disableButtons();
-
-    setTimeout(function(){
-        nextQuestion();
-    },800);
-
-};
-
-    }
-
-    resetButtons();
 
     timeLeft = 15;
-
     timerText.innerHTML = "Time Left: 15s";
 
     timer = setInterval(function(){
@@ -110,11 +113,7 @@ if(q.logo && q.logo !== ""){
 
             disableButtons();
 
-            setTimeout(function(){
-
-                nextQuestion();
-
-            },500);
+            setTimeout(nextQuestion,500);
 
         }
 
@@ -124,7 +123,9 @@ if(q.logo && q.logo !== ""){
 
 function disableButtons(){
 
-    optionButtons.forEach(btn=>btn.disabled=true);
+    optionButtons.forEach(btn=>{
+        btn.disabled = true;
+    });
 
 }
 
@@ -133,16 +134,10 @@ function resetButtons(){
     optionButtons.forEach(btn=>{
 
         btn.disabled = false;
-
         btn.style.background = "";
-
         btn.style.color = "";
-
         btn.style.border = "";
-
-        btn.classList.remove("correct");
-        btn.classList.remove("wrong");
-        btn.classList.remove("selected");
+        btn.blur();
 
     });
 
@@ -158,27 +153,25 @@ async function nextQuestion(){
 
     }else{
 
-localStorage.setItem("quizCompleted","true");
+        localStorage.setItem("quizCompleted","true");
 
-await saveScore(score);
+        await saveScore(score);
 
-        document.body.innerHTML=`
-<div class="container">
-    <div class="card">
-        <h1>🎉 Quiz Submitted Successfully!</h1>
-        <h2>Redirecting to Leaderboard...</h2>
-    </div>
-</div>
-`;
+        document.body.innerHTML = `
+        <div class="container">
+            <div class="card">
+                <h1>🎉 Quiz Submitted Successfully!</h1>
+                <h2>Redirecting to Leaderboard...</h2>
+            </div>
+        </div>
+        `;
 
-setTimeout(function(){
-    window.location.href="leaderboard.html";
-},2000);
+        setTimeout(function(){
+            window.location.href = "leaderboard.html";
+        },2000);
 
     }
 
 }
 
 loadQuestion();
-
-localStorage.setItem("quizCompleted","true");
