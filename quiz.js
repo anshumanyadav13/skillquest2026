@@ -119,7 +119,10 @@ function loadQuestion(){
 function disableButtons(){
 
     optionButtons.forEach(btn=>{
+
         btn.disabled = true;
+        btn.blur();
+
     });
 
 }
@@ -129,9 +132,7 @@ function resetButtons(){
     optionButtons.forEach(btn=>{
 
         btn.disabled = false;
-
-        btn.classList.remove("selected");
-
+        btn.className = "option";
         btn.blur();
 
     });
