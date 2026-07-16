@@ -76,8 +76,7 @@ function loadQuestion(){
 
     optionsDiv.innerHTML = "";
 
-let options = [...q.options];
-options.sort(() => Math.random() - 0.5);
+
 
 options.forEach(option => {
 
@@ -128,35 +127,19 @@ options.forEach(option => {
 
 function disableButtons(){
 
-    optionButtons.forEach(btn=>{
-
+    document.querySelectorAll(".option").forEach(btn=>{
         btn.disabled = true;
-        btn.blur();
-
     });
 
 }
 
 function resetButtons(){
-
-    optionButtons.forEach(btn=>{
-
-        btn.disabled = false;
-        btn.className = "option";
-        btn.blur();
-
-    });
-
+    // No code needed
 }
 
 async function nextQuestion(){
 
     clearInterval(timer);
-
-    optionButtons.forEach(btn=>{
-        btn.blur();
-        btn.disabled = false;
-    });
 
     currentQuestion++;
 
