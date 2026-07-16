@@ -139,7 +139,7 @@ async function nextQuestion(){
     }else{
 
         localStorage.setItem("score", score);
-localStorage.setItem("total", 40);
+localStorage.setItem("total", 20);
 localStorage.setItem("quizCompleted","true");
 
 await saveScore(score);
