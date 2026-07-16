@@ -600,6 +600,12 @@ button{
 }
 
 #logo{
+    width:150px;
+    height:150px;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    object-fit:contain;
     border:4px solid #FFD700;
     box-shadow:0 0 25px #FFD700;
 }
