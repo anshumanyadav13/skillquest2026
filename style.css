@@ -623,3 +623,25 @@ h3{
 .option{
     -webkit-tap-highlight-color: transparent;
 }
+
+/* Remove Android blue tap highlight */
+
+button,
+.option,
+img,
+a{
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+button:focus,
+button:focus-visible,
+.option:focus,
+.option:focus-visible{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button::-moz-focus-inner{
+    border:0;
+}
