@@ -162,21 +162,6 @@ background-position:0% 50%;
 
 }
 
-@keyframes float{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
 
 @media(max-width:500px){
 
@@ -219,23 +204,6 @@ font-size:16px;
 .bg i:nth-child(10){top:75%;left:65%;}
 .bg i:nth-child(11){bottom:15%;left:35%;}
 .bg i:nth-child(12){top:50%;right:5%;}
-
-@keyframes floatIcon{
-
-0%{
-transform:translateY(0) rotate(0deg);
-}
-
-50%{
-transform:translateY(-35px) rotate(180deg);
-}
-
-100%{
-transform:translateY(0) rotate(360deg);
-}
-
-}
-
 
 #score{
 
@@ -361,12 +329,6 @@ background:rgba(255,255,255,.1);
     background:linear-gradient(90deg,#FFD700,#FFF176);
     transition:width 1s ease-in-out;
     box-shadow:0 0 15px rgba(255,215,0,.7);
-}
-
-@keyframes growBar{
-    from{
-        width:0;
-    }
 }
 
 @keyframes slideIn{
