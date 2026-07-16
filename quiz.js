@@ -1,3 +1,6 @@
+if (localStorage.getItem("quizCompleted") === "true") {
+    window.location.href = "result.html";
+}
 import { saveScore } from "./firebase.js";
 history.pushState(null, null, location.href);
 
