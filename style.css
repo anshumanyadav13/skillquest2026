@@ -646,7 +646,3 @@ button::-moz-focus-inner{
     border:0;
 }
 
-.selected{
-    background:#22c55e !important;
-    color:#fff !important;
-}
