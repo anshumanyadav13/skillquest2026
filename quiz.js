@@ -132,7 +132,17 @@ function resetButtons(){
 
     optionButtons.forEach(btn=>{
 
-        btn.disabled=false;
+        btn.disabled = false;
+
+        btn.style.background = "";
+
+        btn.style.color = "";
+
+        btn.style.border = "";
+
+        btn.classList.remove("correct");
+        btn.classList.remove("wrong");
+        btn.classList.remove("selected");
 
     });
 
