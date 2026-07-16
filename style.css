@@ -111,7 +111,6 @@ button{
 button:hover{
     transform:translateY(-3px);
 }
-}
 
 .option{
     margin:8px 0;
