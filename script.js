@@ -19,11 +19,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 window.startQuiz = async function () {
-if (localStorage.getItem("quizCompleted") === "true") {
-    alert("You have already completed the quiz.");
-    window.location.href = "result.html";
-    return;
-}
 
     const name = document.getElementById("name").value.trim();
     const roll = document.getElementById("roll").value.trim();
