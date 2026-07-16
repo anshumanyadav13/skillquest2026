@@ -115,8 +115,8 @@ points:1
 {
 logo:"images/edge.png",
 question:"",
-options:["Chrome","Edge","Firefox","Safari"],
-answer:"Edge",
+options:["Google Chrome","Microsoft Edge","Mozilla Firefox","Safari"],
+answer:"Microsoft Edge",
 points:1
 },
 
