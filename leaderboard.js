@@ -25,23 +25,25 @@ function loadLeaderboard(classroom, elementId) {
     const board = document.getElementById(elementId);
 
     const q = query(
-        collection(db, "scores"),
-        where("classroom", "==", classroom),
-        orderBy("score", "desc")
-    );
+    collection(db, "scores"),
+    orderBy("score", "desc")
+);
 
     onSnapshot(q, (snapshot) => {
 
         board.innerHTML = "";
 
-        if (snapshot.empty) {
+const filtered = snapshot.docs.filter(doc =>
+    doc.data().classroom === classroom
+);
+        if (filtered.length === 0) {
             board.innerHTML = "<p style='color:white;text-align:center;'>No participants yet.</p>";
             return;
         }
 
         let rank = 1;
 
-        snapshot.forEach((doc) => {
+        filtered.forEach((doc) => {
 
             const data = doc.data();
 
