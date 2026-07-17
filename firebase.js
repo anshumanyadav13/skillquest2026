@@ -24,11 +24,12 @@ export async function saveScore(score) {
     const roll = localStorage.getItem("roll");
 
     await setDoc(doc(db, "scores", roll), {
-        name: name,
-        roll: roll,
-        score: score,
-        time: new Date()
-    });
+    name: name,
+    roll: roll,
+    classroom: localStorage.getItem("classroom"),
+    score: score,
+    time: new Date()
+});
 
     console.log("Score saved successfully");
 }
