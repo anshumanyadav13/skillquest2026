@@ -22,64 +22,50 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function load() {
-  const snap = await getDocs(collection(db, "scores"));
+    const snap = await getDocs(collection(db, "scores"));
 
-const docs = snap.docs.sort((a, b) => b.data().score - a.data().score);
+    const docs = snap.docs.sort((a, b) => b.data().score - a.data().score);
 
-  const room = document.getElementById("leaderboard37");
-  const lab = document.getElementById("leaderboardLab");
+    const room = document.getElementById("leaderboard37");
+    const lab = document.getElementById("leaderboardLab");
 
-  room.innerHTML = "";
-  lab.innerHTML = "";
+    room.innerHTML = "";
+    lab.innerHTML = "";
 
-  docs.forEach(doc => {
-    const d = doc.data();
+    let roomRank = 1;
+    let labRank = 1;
 
-    let board;
-    let rank;
+    docs.forEach(doc => {
+        const d = doc.data();
 
-    // Normalize classroom value
-    const classroom = (d.classroom || "")
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .replace(/\./g, "");
+        let board, rank;
 
-    if (classroom === "roomno37") {
-        board = room;
-        rank = room.children.length + 1;
-    } else if (classroom === "lab") {
-        board = lab;
-        rank = lab.children.length + 1;
-    } else {
-        return;
-    }
+        if (d.classroom === "Room No.37") {
+            board = room;
+            rank = roomRank++;
+        } else if (d.classroom === "Lab") {
+            board = lab;
+            rank = labRank++;
+        } else {
+            return;
+        }
 
-    let medal = rank;
-    if (rank === 1) medal = "🥇";
-    else if (rank === 2) medal = "🥈";
-    else if (rank === 3) medal = "🥉";
+        const medal = rank === 1 ? "🥇" :
+                      rank === 2 ? "🥈" :
+                      rank === 3 ? "🥉" : rank;
 
-    let percent = (d.score / 20) * 100;
-    let initial = d.name.charAt(0).toUpperCase();
-
-    board.innerHTML += `
-    <div class="leader-card">
-        <div class="leader-top">
-            <span class="medal">${medal}</span>
-
-            <div class="avatar">${initial}</div>
-
-            <div class="info">
-                <h3>${d.roll} - ${d.name}</h3>
-                <small>⭐ ${d.score}/20 Points</small>
+        board.innerHTML += `
+        <div class="leader-card">
+            <div class="leader-top">
+                <span class="medal">${medal}</span>
+                <div class="avatar">${d.name.charAt(0).toUpperCase()}</div>
+                <div class="info">
+                    <h3>${d.roll} - ${d.name}</h3>
+                    <small>⭐ ${d.score}/20 Points</small>
+                </div>
             </div>
-        </div>
-
-        <div class="bar">
-            <div class="fill" style="width:${percent}%"></div>
-        </div>
-    </div>`;
-});
+        </div>`;
+    });
 }
 
 load();
