@@ -1,5 +1,3 @@
-alert("leaderboard.js loaded");
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import {
@@ -37,8 +35,6 @@ async function load() {
 
     docs.forEach(doc => {
         const d = doc.data();
-console.log(d);
-alert("Classroom = " + JSON.stringify(d.classroom));
 
         let board, rank;
 
@@ -54,7 +50,7 @@ if (classroom === "roomno37") {
     board = lab;
     rank = labRank++;
 } else {
-    continue;
+    return;
 }
 
         const medal = rank === 1 ? "🥇" :
