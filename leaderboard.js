@@ -37,6 +37,8 @@ async function load() {
 
     docs.forEach(doc => {
         const d = doc.data();
+console.log(d);
+alert("Classroom = " + JSON.stringify(d.classroom));
 
         let board, rank;
 
