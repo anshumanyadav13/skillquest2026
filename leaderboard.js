@@ -40,15 +40,17 @@ async function load() {
 
         let board, rank;
 
-        if (d.classroom === "Room No.37") {
-            board = room;
-            rank = roomRank++;
-        } else if (d.classroom === "Lab") {
-            board = lab;
-            rank = labRank++;
-        } else {
-            return;
-        }
+        const classroom = String(d.classroom || "").trim().toLowerCase();
+
+if (classroom.includes("room")) {
+    board = room;
+    rank = roomRank++;
+} else if (classroom.includes("lab")) {
+    board = lab;
+    rank = labRank++;
+} else {
+    return;
+}
 
         const medal = rank === 1 ? "🥇" :
                       rank === 2 ? "🥈" :
