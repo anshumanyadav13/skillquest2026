@@ -1,9 +1,6 @@
+alert("leaderboard.js loaded");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAn2zYgbD3LqawWMGVmGLWEwRs4ZNu-iiI",
