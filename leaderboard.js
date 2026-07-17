@@ -24,13 +24,15 @@ const db = getFirestore(app);
 async function load() {
   const snap = await getDocs(collection(db, "scores"));
 
+const docs = snap.docs.sort((a, b) => b.data().score - a.data().score);
+
   const room = document.getElementById("leaderboard37");
   const lab = document.getElementById("leaderboardLab");
 
   room.innerHTML = "";
   lab.innerHTML = "";
 
-  snap.forEach(doc => {
+  docs.forEach(doc => {
     const d = doc.data();
 
     let board;
