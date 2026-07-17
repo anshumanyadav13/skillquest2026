@@ -28,6 +28,13 @@ localStorage.removeItem("quizCompleted");
 
     const name = document.getElementById("name").value.trim();
     const roll = document.getElementById("roll").value.trim();
+const classroom = document.getElementById("classroom").value;
+if(name=="" || roll=="" || classroom==""){
+    alert("Please fill all fields");
+    btn.disabled = false;
+    btn.innerHTML = "🚀 START QUIZ NOW";
+    return;
+}
     const cls = document.getElementById("class").value;
 
     if (name === "") {
@@ -64,8 +71,9 @@ localStorage.removeItem("quizCompleted");
         }
 
         localStorage.setItem("name", name);
-        localStorage.setItem("roll", roll);
-        localStorage.setItem("class", cls);
+localStorage.setItem("roll", roll);
+localStorage.setItem("class", cls);
+localStorage.setItem("classroom", classroom);
 if(document.documentElement.requestFullscreen){
     document.documentElement.requestFullscreen();
 }
